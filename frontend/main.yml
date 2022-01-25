@@ -1,0 +1,12 @@
+- name: install nginx
+  hosts: FRONTEND
+  become: yes
+  tasks:
+    ansible.builtin.yum:
+      name: nginx
+      state: present
+
+    ansible.builtin.systemd:
+      name: nginx
+      state: restarted
+      enabled: yes
